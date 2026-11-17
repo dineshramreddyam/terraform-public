@@ -1,0 +1,23 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "azurerm_network_interface.vm" [label="azurerm_network_interface.vm"];
+  "azurerm_network_security_group.vm" [label="azurerm_network_security_group.vm"];
+  "azurerm_network_security_rule.rdp" [label="azurerm_network_security_rule.rdp"];
+  "azurerm_public_ip.vm" [label="azurerm_public_ip.vm"];
+  "azurerm_resource_group.lab" [label="azurerm_resource_group.lab"];
+  "azurerm_subnet.windows" [label="azurerm_subnet.windows"];
+  "azurerm_subnet_network_security_group_association.windows" [label="azurerm_subnet_network_security_group_association.windows"];
+  "azurerm_virtual_network.lab" [label="azurerm_virtual_network.lab"];
+  "azurerm_windows_virtual_machine.lab" [label="azurerm_windows_virtual_machine.lab"];
+  "azurerm_network_interface.vm" -> "azurerm_public_ip.vm";
+  "azurerm_network_interface.vm" -> "azurerm_subnet.windows";
+  "azurerm_network_security_group.vm" -> "azurerm_resource_group.lab";
+  "azurerm_network_security_rule.rdp" -> "azurerm_network_security_group.vm";
+  "azurerm_public_ip.vm" -> "azurerm_resource_group.lab";
+  "azurerm_subnet.windows" -> "azurerm_virtual_network.lab";
+  "azurerm_subnet_network_security_group_association.windows" -> "azurerm_network_security_group.vm";
+  "azurerm_subnet_network_security_group_association.windows" -> "azurerm_subnet.windows";
+  "azurerm_virtual_network.lab" -> "azurerm_resource_group.lab";
+  "azurerm_windows_virtual_machine.lab" -> "azurerm_network_interface.vm";
+}

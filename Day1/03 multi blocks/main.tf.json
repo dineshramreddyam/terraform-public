@@ -1,0 +1,7 @@
+{
+  "output": {
+    "hello-world-json": {
+      "value": "hello, world from terraform json"
+    }
+  }
+}
