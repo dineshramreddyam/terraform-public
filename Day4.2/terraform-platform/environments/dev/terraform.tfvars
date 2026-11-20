@@ -1,0 +1,1 @@
+bucket_name = "wwi-dev-dinesh-yourinitials"
